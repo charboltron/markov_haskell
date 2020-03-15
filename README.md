@@ -1,5 +1,5 @@
 # markov_haskell
-two projects exploring markov chains in haskell, human speech and midi (classical piano) 
+Two projects exploring markov chains in haskell, human speech and midi (classical piano) 
 
 The first, unfortunately called "Trump.hs," started as a Python tutorial and ended up being the first program I ever wrote in haskell. It was initially a markov speech generator based on Trump's speeches circa 2016, but eventually grew to a generator that could train on various public domain sources such as James Joyce, Virginia Woolf, Shakespeare, the Bible, etc. 
 
