@@ -17,7 +17,6 @@ license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
-    README.md
 
 executable trump
   main-is: Main.hs

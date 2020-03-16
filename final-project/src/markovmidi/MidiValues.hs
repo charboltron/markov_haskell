@@ -5,11 +5,11 @@ import Euterpea
 midi_notes = [12..119] --12 because c 0 starts at 12 and b 8 is 119
 
 wholes   = replicate 3  wns 
-halfs    = replicate 3  hns
-quarters = replicate 15 qns
-eighths  = replicate 20 ens
-sixtns   = replicate 10 sns 
-thtysnds = replicate 1 tns
+halfs    = replicate 5  hns
+quarters = replicate 12 qns
+eighths  = replicate 6 ens
+sixtns   = replicate 4 sns 
+thtysnds = replicate 2 tns
 
 randomNoteLength = concat [wholes, halfs, quarters, eighths, sixtns, thtysnds] --figure out some kind of repeat function for probs.
 

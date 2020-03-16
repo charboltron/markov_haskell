@@ -59,19 +59,13 @@ main = do
         speaker'  <- getLine 
         let speaker = filterNot (== ' ') speaker'
         let file = "voices/"++speaker++".txt"
+
+        --Read in text and create Markov chain
         contents <- readFile file
         putStrLn "Enter the length of the output:"
         x <- getLine
         let speechLen = read x :: Int 
 
-        --Read in text and create Markov chain
-        -- contents       <- readFile "speeches.txt"
-        -- contents       <- readFile "joyce.txt"
-        -- contents       <- readFile "shakespeare.txt"
-        -- contents       <- readFile "yeats.txt"
-        -- contents       <- readFile "bible.txt"
-        -- contents       <- readFile "woolf.txt"
-        
         let wordlist   = words contents
         let lowerwords = map lowerize wordlist
         let pairs      = makePairs lowerwords
@@ -85,16 +79,6 @@ main = do
         smallIndexGen <- randomIndex 0 (length (snd firstWordChain))
         let firstWord = fst firstWordChain
         let nextGen = snd firstWordGen
-        
-        -- print chain
-        -- print firstWordGen
-        -- print firstWordChain
-        -- putStrLn "first word"
-        -- print firstWord
-        -- putStrLn "first word index"
-        -- print firstWordIndex
-        -- print nextGen  
-        -- print $ length $ snd $ firstWordChain
 
         let speech = generateMarkovSpeech chain firstWordIndex speechLen smallIndexGen
         
