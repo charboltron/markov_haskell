@@ -88,16 +88,24 @@ getFirstLeftHand rh _ = rh-24
 
 adjustLeftHand :: (Ord a, Num a) => [a] -> [a]
 adjustLeftHand (x:xs) = 
-    if x > 50 
-        then x-12: adjustLeftHand xs
-        else x:    adjustLeftHand xs
+    if x > 70 
+        then x-36: adjustLeftHand xs
+        else if x > 60 
+            then x-24: adjustLeftHand xs 
+            else if x > 50 
+                then x-12: adjustLeftHand xs 
+                else x:    adjustLeftHand xs
 adjustLeftHand _ = []
 
 adjustRightHand :: (Ord a, Num a) => [a] -> [a]
 adjustRightHand (x:xs) = 
-    if x < 50 
-        then x+12: adjustRightHand xs
-        else x:    adjustRightHand xs
+    if x < 30 
+        then x+36: adjustRightHand xs
+        else if x < 40 
+            then x+24: adjustRightHand xs 
+            else if x < 50 
+                then x+12: adjustRightHand xs 
+                else x:    adjustRightHand xs
 adjustRightHand _ = []
 
 keepInRange :: [Int] -> Int -> Int -> [Int]
@@ -241,14 +249,14 @@ main = do
     -- RIGHT PART
     putStrLn "Right Hand"
     print rightHand'
-    let piece = buildPiece [rightHandPart]
-    E.play piece
+    -- let piece = buildPiece [rightHandPart]
+    -- E.play piece
 
     -- LEFT PART
     putStrLn "Left Hand:"
     print leftHand'
-    let piece' = buildPiece [leftHandPart]
-    E.play piece'
+    -- let piece' = buildPiece [leftHandPart]
+    -- E.play piece'
 
     -- TWO HANDS
     putStrLn "Both Hands (brace yourselves...)"
